@@ -8,7 +8,7 @@ import pyqtgraph.opengl as gl
 import numpy as np
 
 
-class Plott_3D(QWidget):
+class Plot_3D(QWidget):
     def __init__(self,arr_real,arr_imag, parent=None):
         super(Plott_3D,self).__init__(parent = parent)
         #self.horizontalLayout = QHBoxLayout(self)
@@ -65,7 +65,7 @@ if __name__ == '__main__':
 
     Imag = 100*np.sin(a/5)/(0.5*a+1)
 
-    w = Plott_3D(Real,Imag)
+    w = Plot_3D(Real,Imag)
 
 
     #w.show()
