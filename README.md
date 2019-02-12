@@ -7,3 +7,4 @@ Qt_Designer -> Einbinden von QtWidgets in eine .ui
 
 # Pyqtgraph 
 Zur darstellung von Achsen mit skalierung sollte dittmerjoel/pyqtgraph installiert werden.
+`sdfas`
