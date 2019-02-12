@@ -20,13 +20,13 @@ class Plot_3D(QWidget):
         self.w.show()
         self.w.setWindowTitle('pyqtgraph example: GLSurfacePlot')
         self.w.setCameraPosition(distance=200)
-        self.a = gl.GLAxisItem(text_scale=1)
-        self.a.setSize(len(self.arr_real), len(self.arr_imag),int(round(np.amax(self.arr_real+self.arr_imag))))
+        self.a = gl.GLAxisItem(text_scale=1) #Erstellen der Achsen und festlegen der Zahlengröße. Ab text_scale = 1 werden nur noch 10er Schritte dargestellt.
+        self.a.setSize(len(self.arr_real), len(self.arr_imag),int(round(np.amax(self.arr_real+self.arr_imag)))) #Anpassen der Größe der Achsen an die des Plots 
 
-        self.a.setColor([1, 0, 0], [0, 0, 0], [0, 0, 1])
-        self.a.translate(-10,-10,-10)
+        self.a.setColor([1, 0, 0], [0, 0, 0], [0, 0, 1]) #Farbe der Achsen setzen hierbei gilt x,y,z mit jeweils [R,G,B] von 0 -> 1
+        self.a.translate(-10,-10,-10) #Verschieben des Koordinatensystems
         self.w.addItem(self.a)
-        """
+        """                             # Erstellen eines Gitters in der entsprechenden Achse
         self.gx = gl.GLGridItem()
         self.gx.rotate(90, 0, 1, 0)
         self.gx.translate(-10, 30, 30)
@@ -48,9 +48,9 @@ class Plot_3D(QWidget):
         """
         self.x = self.arr_real
         self.y = self.arr_imag
-        self.z = self.x.reshape(len(self.arr_real), 1) + self.y.reshape(1, len(self.arr_imag))
-        self.p2 = gl.GLSurfacePlotItem(z=self.z, shader='normalColor')
-        self.p2.translate(-10, -10, -11)
+        self.z = self.x.reshape(len(self.arr_real), 1) + self.y.reshape(1, len(self.arr_imag))  # Ermitteln der Z-Komponente
+        self.p2 = gl.GLSurfacePlotItem(z=self.z, shader='normalColor') #Erstellen eines pyqtgraph Surfaceplot
+        self.p2.translate(-10, -10, -11) #Verschieben
         self.w.addItem(self.p2)
         #self.w.orbit(45, 45)
         #self.w.setBackgroundColor('')
@@ -61,11 +61,11 @@ class Plot_3D(QWidget):
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     a = np.linspace(0,100,100)
-    Real = 100*np.sin(a/5)/(0.5*a+1)
+    Real = 100*np.sin(a/5)/(0.5*a+1) #Erstellen des Realteils
 
-    Imag = 100*np.sin(a/5)/(0.5*a+1)
+    Imag = 100*np.sin(a/5)/(0.5*a+1) #Erstellen des Imaginärteils
 
-    w = Plot_3D(Real,Imag)
+    w = Plot_3D(Real,Imag) #Übergabe an die QtWidget class
 
 
     #w.show()
