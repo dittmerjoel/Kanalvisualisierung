@@ -10,7 +10,7 @@ import numpy as np
 
 class Plot_3D(QWidget):
     def __init__(self,arr_real,arr_imag, parent=None):
-        super(Plott_3D,self).__init__(parent = parent)
+        super(Plot_3D,self).__init__(parent = parent)
         #self.horizontalLayout = QHBoxLayout(self)
         self.arr_real = arr_real
         self.arr_imag = arr_imag
